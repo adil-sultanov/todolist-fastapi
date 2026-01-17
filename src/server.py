@@ -1,4 +1,3 @@
-import fastapi
-from src.api import actual_print 
+from api import getapp
 
-app = fastapi.FastAPI()
+app = getapp()

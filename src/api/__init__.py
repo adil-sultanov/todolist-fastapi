@@ -1,3 +1,9 @@
-from src.api.kek import actual_print
+from users_router import router
+from fastapi import FastAPI
 
-__all__ = ["actual_print"]
+__all__ = ["router"]
+
+def getapp() -> FastAPI:
+    app = FastAPI()
+    app.include_router(router)
+    return app
