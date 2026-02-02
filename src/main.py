@@ -1,7 +1,7 @@
-from src.api import getapp
+from src.api import get_app
 import uvicorn
 
-app = getapp()
+app = get_app()
 
 uvicorn.run(
     app=app, 
