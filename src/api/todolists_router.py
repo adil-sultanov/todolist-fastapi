@@ -9,3 +9,10 @@ async def get_todo_list(todolist_id: int):
     if not todolist:
         raise HTTPException(status_code=404, detail="Todo list not found")
     return TodoListOut.from_orm(todolist)
+
+@router.post('/', response_model=TodoListOut, status_code=201)
+async def create_todo_list(todolist_data: TodoListCreate):
+    todolist = await TodoListService.create_todo_list(todolist_data.user_id, todolist_data)
+    if not todolist:
+        raise HTTPException(status_code=400, detail="Failed to create todo list")
+    return TodoListOut.from_orm(todolist)

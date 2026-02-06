@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 
 class TodoListCreate(BaseModel):
+    user_id: int
     title: str = Field(default="New ToDo List", min_length=1, max_length=255)
 
 class TodoListUpdate(BaseModel):
